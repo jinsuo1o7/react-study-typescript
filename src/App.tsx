@@ -1,26 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { listenerCount } from "process";
+import "./App.css";
+
+function ifState(person: { name: string; age: number }) {
+    if (person.name === "jinsuo") {
+        return (
+            <div>
+                name : {person.name} age : {person.age}
+            </div>
+        );
+    } else {
+        return <div>Hello Stranger</div>;
+    }
+}
+
+function forLoop() {
+    const elements = [] as JSX.Element[];
+    for (let i = 0; i < 3; i++) {
+        elements.push(<div key={i}>{i} element</div>);
+    }
+    return elements;
+}
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const person = { name: "jinsuo", age: 24 };
+    const simpleList = ["a", "b", "c"];
+    return (
+        <>
+            <div>
+                {person.name} {person.age}
+            </div>
+            {ifState(person)}
+            {forLoop()}
+
+            <ul>
+                {simpleList.map((list) => (
+                    <li>{list}</li>
+                ))}
+            </ul>
+        </>
+    );
 }
 
 export default App;
