@@ -1,7 +1,10 @@
-import { listenerCount } from "process";
 import "./App.css";
+import CounterExample from "./components/CounterExample";
+import CounterWrapper from "./components/CounterWrapper";
+import SimpleExample from "./components/SimpleExample";
+import UseEffectExample from "./components/UseEffectExample";
 
-function ifState(person: { name: string; age: number }) {
+function ifState(person: { name: string; age: number; }) {
     if (person.name === "jinsuo") {
         return (
             <div>
@@ -37,6 +40,16 @@ function App() {
                     <li>{list}</li>
                 ))}
             </ul>
+
+            <SimpleExample name='jinsu' age={24} hobby='aa' new={true} />
+            <SimpleExample name='sana' age={25} hobby='aa' />
+            <SimpleExample name='jjin' age={26} hobby='aa' />
+
+            <hr />
+            <CounterWrapper />
+
+            <hr />
+            <UseEffectExample />
         </>
     );
 }
